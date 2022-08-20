@@ -1,0 +1,92 @@
+@import 'resetCSS';
+
+body{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    height: 100%;
+    display: grid;
+    line-height: 3vh;
+    @mixin window($bgcolor, $areaName){
+        border-radius: 1vw;
+        background-color: $bgcolor;
+        box-shadow: 2vw 2vw 3vw -1vw rgba(168, 168, 171, 0.54);
+        grid-area: $areaName;
+        padding: 4vh;
+        @if($bgcolor != hsl(0, 0%, 100%)){
+            .name, h1{
+                color: white;
+            }
+            h2{
+                color: hsla(0, 0%, 81%, 50%);
+            }
+        }@else{
+            .name, h1{
+                color: hsl(217, 19%, 35%);
+            }
+            h2{
+                color: hsla(219, 29%, 14%, 70%);
+            }
+        }
+    }
+    .content{
+        gap: 1.5vw;
+        width: 75%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas: 
+        "clifford clifford walters whittle"
+        "harmon abrams abrams whittle";
+        h1{
+            font-size: 2.1vh;
+            padding-bottom: 1vh;
+        }
+        h2{
+            font-size: 1.5vh;
+        }
+        img{
+            grid-area: img;
+            align-self: center;
+            border-radius: 50%;
+            width: 3vh;
+        }
+        .name{
+            grid-area: name;
+            font-size: 1.5vh;
+            line-height: 1.5vh;
+        }
+        .user-desc{
+            grid-area: user-desc;
+            color: hsl(0, 0%, 81%);
+            font-size: 1.3vh;
+        }
+        .profile{
+            display: grid;
+            grid-template-areas: 
+            "img name"
+            "img user-desc";
+            grid-template-columns: 4.3vh;
+            max-width: 60vw;
+            padding-bottom: 1vw;
+        }
+        .clifford{
+            @include window(hsl(263, 55%, 52%), clifford);
+            background-image: url(/images/bg-pattern-quotation.svg);
+            background-repeat: no-repeat;
+            background-position-x: 80%;
+            background-size: 15vh;
+        }
+        .walters{
+            @include window(hsl(217, 19%, 35%), walters);
+        }
+        .harmon{
+            @include window(hsl(0, 0%, 100%), harmon);
+        }
+        .abrams{
+            @include window(hsl(219, 29%, 14%), abrams);
+        }
+        .whittle{
+            @include window(hsl(0, 0%, 100%), whittle);
+        }
+    }
+}
+@import 'responsive';

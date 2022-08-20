@@ -1,0 +1,22 @@
+@media only screen and (max-width: 800px) {
+    body{
+        .content{
+            width: 90%;
+            margin-top: 1vw;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+            "clifford"
+            "walters"
+            "whittle"
+            "abrams"
+            "harmon";
+            h1{
+                line-height: 3vh;
+            }
+            h2{
+                font-size: 1.5vh;
+                line-height: 2.5vh;
+            }
+        }
+    }
+}
